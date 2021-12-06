@@ -7,7 +7,7 @@ const getFilmesController = (req, res) => {
 
 const getFilmesByIdController = (req, res) => {
     const id = req.params.id;
-    const filme = filmesService.getFilmesByIdService(id);
+    const filme = filmesService.getFilmesByIdService(id)
     res.send(filme)
 }
 
