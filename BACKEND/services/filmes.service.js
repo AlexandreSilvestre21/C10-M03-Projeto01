@@ -49,8 +49,16 @@ const getFilmesByIdService = (idParam) => {
     return blueFilmes.find((filme) => filme.id == idParam);
 }
 
+const createFilmeService = (newFilme) => {
+    const newId = blueFilmes.lenght + 1;
+    newFilme.id = newId;
+    blueFilmes.push(newFilme);
+    return newFilme;
+}
+
 module.exports = {
     getFilmesService,
     getFilmesByIdService,
+    createFilmeService
 }
 
