@@ -70,11 +70,18 @@ const updateFilmeService = (idParam, filmeEdit) => {
    }
 }
 
+const deleteFilmeService = (idParam) => {
+    const index = blueFilmes.findIndex((filme) => filme.id == idParam);
+    const filmeExcluido = blueFilmes[index]
+    blueFilmes.splice(index, 1) //deleta só um filme
+    return filmeExcluido
+}
 
 module.exports = {
     getFilmesService,
     getFilmesByIdService,
     createFilmeService,
     updateFilmeService,
+    deleteFilmeService,
 }
 

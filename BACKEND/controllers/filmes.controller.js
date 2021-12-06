@@ -28,11 +28,17 @@ const updateFilmeController = (req, res) => {
     }
 }
 
+const deleteFilmeController = (req, res) => {
+    const idParam = req.params.id;
+    filmesService.deleteFilmeService(idParam)
+    res.send("O filme foi excluído com sucesso!");
+}
 
 module.exports = {
     getFilmesController,
     getFilmesByIdController,
     createFilmeController,
     updateFilmeController,
+    deleteFilmeController,
 };
 
