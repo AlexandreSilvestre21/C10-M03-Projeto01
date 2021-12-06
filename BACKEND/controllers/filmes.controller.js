@@ -14,7 +14,7 @@ const getFilmesByIdController = (req, res) => {
 const createFilmeController = (req, res) => {
     const newFilme = req.body;
     filmesService.createFilmeService(newFilme);
-    res.send({message: `Filme ${ newFilme.titulo } cadastrado com sucesso!`});
+    res.send({message: `Filme ${ newFilme.titulo }, cadastrado com sucesso!`});
 }
 
 module.exports = {
