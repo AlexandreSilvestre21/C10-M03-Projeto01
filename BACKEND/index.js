@@ -2,52 +2,18 @@ const express = require("express");
 
 const app = express();
 
+app.use(express.json());
+
+const filmesRouter = require("./routes/filmes.routes");
+
+app.use("/filmes", filmesRouter)
+
 const port = 3000;
 
-const blueFilmes = [
-    {
-        id: 1,
-        titulo: "Matrix",
-        genero: "Ação",
-        imagem: "imagem",
-        nota: "Nota de 0 a 10",
-        assistido: "assistido",
-    },
-    {
-        id: 2,
-        titulo: "Matrix Reloaded",
-        genero: "Ação",
-        imagem: "imagem",
-        nota: "Nota de 0 a 10",
-        assistido: "assistido",
-    },
-    {
-        id: 3,
-        titulo: "The Animatrix",
-        genero: "Ação",
-        imagem: "imagem",
-        nota: "Nota de 0 a 10",
-        assistido: "assistido",
-    },
-    {
-        id: 4,
-        titulo: "Matrix Revolutions",
-        genero: "Ação",
-        imagem: "imagem",
-        nota: "Nota de 0 a 10",
-        assistido: "assistido",
-    },
-    {
-        id: 5,
-        titulo: "Matrix Resurrections",
-        genero: "Ação",
-        imagem: "imagem",
-        nota: "Nota de 0 a 10",
-        assistido: "assistido",
-    },
-];
+app.listen(port, () => {
+    console.log(`App rodando na porta ${port}`)
+});
 
-app.use(express.json());
 
 app.all("/*", (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -72,8 +38,6 @@ app.get ("/filmes/:id", (req, res) => {
     res.send(filmeEncontrado);
 });
 
-app.listen(port, () => {
-    console.log(`App rodando na porta ${port}`)
-});
+
 
 
