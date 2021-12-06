@@ -50,15 +50,31 @@ const getFilmesByIdService = (idParam) => {
 }
 
 const createFilmeService = (newFilme) => {
-    const newId = blueFilmes.lenght + 1;
+    const newId = blueFilmes.length + 1;
     newFilme.id = newId;
     blueFilmes.push(newFilme);
     return newFilme;
 }
 
+const updateFilmeService = (idParam, filmeEdit) => {
+   const index = blueFilmes.findIndex((filme) => filme.id == idParam);
+   
+   if(index >= 0) {
+    blueFilmes[index] = {
+        ...blueFilmes[index],
+        ...filmeEdit
+    }
+    return true
+   } else {
+    return false
+   }
+}
+
+
 module.exports = {
     getFilmesService,
     getFilmesByIdService,
-    createFilmeService
+    createFilmeService,
+    updateFilmeService,
 }
 
