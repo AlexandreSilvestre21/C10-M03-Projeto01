@@ -96,7 +96,7 @@ const postFilme = async (filme) => {
     })
     const data = await response.json();
     alert(data.message);
-    
+
     // faz a chamada para a api com algumas configuracoes****
     lista.innerHTML = '';
     getFilmes();
